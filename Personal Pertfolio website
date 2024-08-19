@@ -1,0 +1,123 @@
+HTML
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Navigation Menu</title>
+    <link rel="stylesheet" type="text/css" href="infotech.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <section id="home"><h1>Home</h1></section>
+        <section id="about"><h1>About</h1></section>
+        <section id="services"><h1>Services</h1></section>
+        <section id="contact"><h1>Contact</h1></section>
+    </div>
+
+    <script type="text/javascript" src="infotech.js"></script>
+</body>
+</html>
+
+
+
+
+CSS
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #590b0b;
+    z-index: 1000;
+    transition: background-color 0.3s;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 0;
+    display: block;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.navbar a:hover {
+    color: #523737;
+    background-color: #fff;
+}
+
+.content {
+    padding-top: 60px; /* Height of the navbar */
+}
+
+section {
+    height: 100vh;
+    padding: 20px;
+}
+
+section:nth-child(odd) {
+    background-color: #f4f4f4;
+}
+
+section:nth-child(even) {
+    background-color: #ddd;
+}
+
+
+
+Java Script
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.querySelector('.navbar');
+    const navLinks = document.querySelectorAll('.navbar a');
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            navbar.style.backgroundColor = '#555';
+        } else {
+            navbar.style.backgroundColor = '#333';
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('mouseover', function() {
+            link.style.color = '#333';
+            link.style.backgroundColor = '#fff';
+        });
+
+        link.addEventListener('mouseout', function() {
+            link.style.color = '#fff';
+            link.style.backgroundColor = 'transparent';
+        });
+    });
+});
